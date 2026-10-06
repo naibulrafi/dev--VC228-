@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tender Document Package Builder</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+
+<div>
+
+<h1 id="appTitle">
+Tender Document Package Builder
+</h1>
+
+<p id="appSubtitle">
+Check, match and combine tender documents in the browser.
+</p>
+
+</div>
+
+<button
+id="languageBtn"
+class="secondary"
+onclick="toggleLanguage()"
+>
+বাংলা
+</button>
+
+</header>
+
+
+<section class="card">
+
+<h2 id="requirementsHeading">
+1. Tender Requirements
+</h2>
+
+<label class="file-label">
+
+<span id="requirementsLabel">
+Open requirements.json
+</span>
+
+<input
+id="requirementsFile"
+type="file"
+accept=".json,application/json"
+>
+
+</label>
+
+<div
+id="tenderInfo"
+class="info-grid empty"
+>
+
+<p id="requirementsHint">
+Load the requirements.json file supplied with the problem.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="card">
+
+<div class="section-head">
+
+<div>
+
+<h2 id="uploadHeading">
+2. Upload PDF Files
+</h2>
+
+<p id="uploadLimit">
+Up to 30 PDFs and 50 MB total.
+</p>
+
+</div>
+
+<button
+id="clearFilesBtn"
+class="secondary"
+onclick="clearFiles()"
+>
+Clear Files
+</button>
+
+</div>
+
+
+<label class="file-label">
+
+<span id="uploadLabel">
+Choose PDF files
+</span>
+
+<input
+id="pdfFiles"
+type="file"
+accept=".pdf,application/pdf"
+multiple
+>
+
+</label>
+
+
+<div
+id="fileMessage"
+class="message"
+></div>
+
+
+<div
+id="filesList"
+class="files-list"
+></div>
+
+</section>
+
+
+<section class="card">
+
+<div class="section-head">
+
+<div>
+
+<h2 id="matchHeading">
+3. Match Documents
+</h2>
+
+<p id="matchHint">
+Match each uploaded PDF to at most one requirement.
+</p>
+
+</div>
+
+</div>
+
+
+<div
+id="requirementsList"
+class="requirements-list"
+></div>
+
+</section>
+
+
+<section class="card">
+
+<div class="section-head">
+
+<div>
+
+<h2 id="statusHeading">
+4. Status Check
+</h2>
+
+<p id="statusHint">
+Fix every blocking status before generating the package.
+</p>
+
+</div>
+
+
+<div
+id="summary"
+class="summary"
+></div>
+
+</div>
+
+
+<div
+id="statusList"
+class="status-list"
+></div>
+
+</section>
+
+
+<section class="card generate-card">
+
+<h2 id="generateHeading">
+5. Generate Package
+</h2>
+
+<p id="generateHint">
+The button stays disabled while a blocking problem exists.
+</p>
+
+
+<button
+id="generateBtn"
+class="primary"
+onclick="generatePackage()"
+disabled
+>
+Generate PDF Package
+</button>
+
+
+<div
+id="generateMessage"
+class="message"
+></div>
+
+</section>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
